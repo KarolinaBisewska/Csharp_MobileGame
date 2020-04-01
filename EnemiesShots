@@ -1,0 +1,26 @@
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class EnemiesShots : MonoBehaviour
+{
+	public float speed;
+	public float tilt;
+
+	public GameObject shot;
+	public Transform shotSpawn;
+	public float fireRate;
+	 
+	private float nextFire;
+	
+	void Update ()
+	{
+		if ( Time.time > nextFire) 
+		{
+			nextFire = Time.time + fireRate;
+			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+			GetComponent<AudioSource>().Play ();
+		}
+	}
+
+}
