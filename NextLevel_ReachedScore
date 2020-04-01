@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class NextLevel_ReachedScore : MonoBehaviour
+{
+public bool PlayGame = false;
+ public GameObject scoreTextObject;
+ int score;
+ Text scoreText;
+
+ 
+    public void LoadScene ()
+    {
+     if (score >= 100) {
+         PlayGame = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+    }
+    }
+}
